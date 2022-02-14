@@ -1,5 +1,5 @@
 module.exports = async (ctx, next) => {
-  if (ctx.updateType === "message" && ctx.updateSubType === "text") {
+  if (ctx.updateType === "message") {
     const text = ctx.update.message.toLowerCase();
     if (text.startsWith("/")) {
       const match = text.match(/^\/([^\s]+)\s?(.+)?/);
