@@ -1,6 +1,7 @@
 const { Telegraf } = require("telegraf");
 const startAction = require("./actions/start");
 const aboutAction = require("./actions/about");
+const supportAction = require("./actions/support");
 const billMiddleware = require("./actions/billMiddleware");
 
 const newBillAction = require("./actions/newBill");
@@ -13,6 +14,10 @@ bot.start((ctx) => {
 
 bot.command("about", (ctx) => {
   return aboutAction(ctx);
+});
+
+bot.command("support", (ctx) => {
+  return supportAction(ctx);
 });
 
 bot.use(async (ctx, next) => {
