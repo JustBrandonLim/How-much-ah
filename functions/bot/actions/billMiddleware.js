@@ -14,7 +14,9 @@ module.exports = async (ctx, next) => {
         }
       }
 
-      ctx.state.command = {
+      console.log(ctx.update.message);
+
+      ctx.state = {
         raw: text,
         command,
         args,
