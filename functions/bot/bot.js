@@ -1,12 +1,18 @@
 const { Telegraf } = require("telegraf");
 const startAction = require("./actions/start");
+const aboutAction = require("./actions/about");
 const billMiddleware = require("./actions/billMiddleware");
+
 const newBillAction = require("./actions/newBill");
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
 bot.start((ctx) => {
   return startAction(ctx);
+});
+
+bot.command("about", (ctx) => {
+  return aboutAction(ctx);
 });
 
 bot.use(async (ctx, next) => {
