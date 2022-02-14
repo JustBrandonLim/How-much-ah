@@ -1,6 +1,6 @@
 module.exports = async (ctx, next) => {
   if (ctx.updateType === "message") {
-    const text = ctx.update.message.toLowerCase();
+    const text = ctx.update.message.message.toLowerCase();
     if (text.startsWith("/")) {
       const match = text.match(/^\/([^\s]+)\s?(.+)?/);
       let args = [];
@@ -13,8 +13,6 @@ module.exports = async (ctx, next) => {
           args = match[2].split(" ");
         }
       }
-
-      console.log(ctx.update.message);
 
       ctx.state = {
         raw: text,
